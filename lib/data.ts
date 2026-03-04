@@ -22,7 +22,6 @@ export const skills: Skill[] = [
   { name: "CSS", category: "frontend" },
   { name: "SASS", category: "frontend" },
   { name: "Tailwind", category: "frontend" },
-  { name: "Zustand", category: "frontend" },
   { name: "Redux", category: "frontend" },
   { name: "Framer Motion", category: "frontend" },
   { name: "Node.js", category: "backend" },

@@ -1,16 +1,16 @@
-"use client"
+"use client";
 
-import { motion } from "framer-motion"
-import { Github, Mail, MapPin } from "lucide-react"
-import { personalInfo } from "@/lib/data"
-import { fadeInUp, staggerContainer } from "@/lib/animations"
+import { motion } from "framer-motion";
+import { Github, Mail, MapPin } from "lucide-react";
+import { personalInfo } from "@/lib/data";
+import { fadeInUp, staggerContainer } from "@/lib/animations";
 
 export function Hero() {
   return (
     <section className="relative flex min-h-screen items-center justify-center px-6">
       {/* Subtle grid background */}
       <div
-        className="pointer-events-none absolute inset-0 opacity-[0.03]"
+        className="pointer-events-none absolute inset-0 opacity-[0.03] rounded-full border-foreground"
         style={{
           backgroundImage:
             "linear-gradient(to right, currentColor 1px, transparent 1px), linear-gradient(to bottom, currentColor 1px, transparent 1px)",
@@ -104,5 +104,5 @@ export function Hero() {
         </motion.div>
       </motion.div>
     </section>
-  )
+  );
 }
