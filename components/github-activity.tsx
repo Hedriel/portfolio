@@ -126,9 +126,19 @@ export function GitHubActivity({ username }: GitHubActivityProps) {
   return (
     <motion.div variants={fadeInUp} className="mt-10">
       <div className="mb-4 flex items-center justify-between">
-        <h3 className="font-mono text-sm tracking-widest text-primary">
-          GitHub Activity
-        </h3>
+        <div className="flex items-center gap-3">
+          <h3 className="font-mono text-sm tracking-widest text-primary">
+            GitHub Activity
+          </h3>
+          <a
+            href="https://github.com/Hedriel?tab=repositories"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="font-mono text-xs text-muted-foreground transition-colors underline-offset-4 hover:text-foreground hover:underline"
+          >
+            View Repositories →
+          </a>
+        </div>
         <span className="font-mono text-xs text-muted-foreground">
           {totalContributions.toLocaleString()} contributions in the last year
         </span>

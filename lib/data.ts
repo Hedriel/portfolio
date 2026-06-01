@@ -8,11 +8,11 @@ export const personalInfo = {
   linkedin: "https://www.linkedin.com/in/hernan-gonzalezma/",
   about:
     "I am a passionate frontend developer with experience working on various projects for companies like MercadoLibre, Globant, and Nodus. I thrive in fast-paced, dynamic environments and enjoy tackling complex challenges to create seamless user experiences.",
-}
+};
 
 export interface Skill {
-  name: string
-  category: "frontend" | "backend" | "tools"
+  name: string;
+  category: "frontend" | "backend" | "tools";
 }
 
 export const skills: Skill[] = [
@@ -32,22 +32,32 @@ export const skills: Skill[] = [
   { name: "Git", category: "tools" },
   { name: "Postman", category: "tools" },
   { name: "JIRA", category: "tools" },
-]
+];
 
 export interface Experience {
-  id: string
-  role: string
-  company: string
-  location: string
-  period: string
-  description: string
-  technologies?: string[]
+  id: string;
+  role: string;
+  company: string;
+  location: string;
+  period: string;
+  description: string;
+  technologies?: string[];
 }
 
 export const experiences: Experience[] = [
   {
+    id: "glofy",
+    role: "Full Stack Developer",
+    company: "Glofy",
+    location: "Buenos Aires, Argentina",
+    period: "MAR 2026 - PRESENT",
+    description:
+      "Responsible for optimizing and improving site performance, rebuilding workflows and components using clean architecture principles. Replacing legacy structures with modular, maintainable components.",
+    technologies: ["React", "Next.js", "Tailwind", "Node.js", "Express"],
+  },
+  {
     id: "mercadolibre",
-    role: "Front-End Developer",
+    role: "Front End Developer",
     company: "Mercado Libre",
     location: "Buenos Aires, Argentina",
     period: "APR 2024 - SEP 2025",
@@ -57,13 +67,20 @@ export const experiences: Experience[] = [
   },
   {
     id: "nodus-fe",
-    role: "Junior Front-End Developer",
+    role: "Junior Front End Developer",
     company: "Nodus Company",
     location: "Buenos Aires, Argentina",
     period: "MAR 2023 - APR 2024",
     description:
       "Deployed multiple deliverables and landing pages with Next.js, delivering dynamic interfaces with the use of Framer Motion and GSAP. Specialized in SASS, React, and Tailwind to ship high-quality projects in fast-paced work environments.",
-    technologies: ["React", "Next.js", "SASS", "Tailwind", "Framer Motion", "GSAP"],
+    technologies: [
+      "React",
+      "Next.js",
+      "SASS",
+      "Tailwind",
+      "Framer Motion",
+      "GSAP",
+    ],
   },
   {
     id: "nodus-qa",
@@ -85,13 +102,13 @@ export const experiences: Experience[] = [
       "Software Engineer working with the Guidewire development team in Mississauga, Canada. Automated tests and maintained content using technologies like Java, Selenium, and Bash. Implemented patches and quick fixes.",
     technologies: ["Java", "Selenium", "Bash"],
   },
-]
+];
 
 export interface Education {
-  id: string
-  degree: string
-  institution: string
-  period: string
+  id: string;
+  degree: string;
+  institution: string;
+  period: string;
 }
 
 export const education: Education[] = [
@@ -107,13 +124,13 @@ export const education: Education[] = [
     institution: "Coderhouse",
     period: "2022 - 2023",
   },
-]
+];
 
 export interface Recommendation {
-  id: string
-  name: string
-  text: string
-  relationship: string
+  id: string;
+  name: string;
+  text: string;
+  relationship: string;
 }
 
 export const recommendations: Recommendation[] = [
@@ -129,12 +146,12 @@ export const recommendations: Recommendation[] = [
     relationship: "Buddy at Mercado Libre",
     text: "Tuve el placer de ser la buddy de Herni en su llegada a Mercado Libre y desde el dia uno demostro una gran capacidad tecnica y una rapidez para adaptarse increible. Entendio enseguida como funcionaba todo, tanto lo tecnico como el negocio, y eso le permitio empezar a aportar valor al equipo rapidamente. Con el tiempo fue asumiendo tareas cada vez mas complejas, y siempre las entregaba en tiempo con una autonomia impresionante. Pero mas alla de su talento, lo que mas destaco es la gran persona que es. No tengo ninguna duda de que Herni va a aportar muchisimo valor donde sea que trabaje. Sin pensarlo dos veces, volveria a trabajar con el.",
   },
-]
+];
 
 export const languages = [
   { name: "English", level: "Advanced" },
   { name: "Spanish", level: "Native" },
-]
+];
 
 export const navLinks = [
   { label: "About", href: "#about" },
@@ -142,4 +159,4 @@ export const navLinks = [
   { label: "Experience", href: "#experience" },
   { label: "Education", href: "#education" },
   { label: "Contact", href: "#contact" },
-]
+];
