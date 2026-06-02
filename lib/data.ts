@@ -63,7 +63,7 @@ export const experiences: Experience[] = [
     period: "APR 2024 - SEP 2025",
     description:
       "Part of the restyling of the Activities tab on MercadoPago, working on both the detail page and the listing page. Redesigned all frontend components from scratch using React and SASS, delivering a completely renewed user experience.",
-    technologies: ["React", "SASS", "JavaScript"],
+    technologies: ["React", "SASS", "JavaScript", "Node.js"],
   },
   {
     id: "nodus-fe",
