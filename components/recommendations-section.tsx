@@ -8,7 +8,7 @@ import { recommendations } from "@/lib/data"
 
 export function RecommendationsSection() {
   return (
-    <section id="recommendations" className="px-6 py-24">
+    <section id="recommendations" className="px-6 py-12 md:py-24">
       <motion.div
         variants={staggerContainer}
         initial="hidden"

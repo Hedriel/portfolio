@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Github, Mail, MapPin } from "lucide-react";
+import { Github, Linkedin, Mail, MapPin } from "lucide-react";
 import { personalInfo } from "@/lib/data";
 import { fadeInUp, staggerContainer } from "@/lib/animations";
 
@@ -56,6 +56,15 @@ export function Hero() {
           variants={fadeInUp}
           className="mt-8 flex flex-wrap items-center justify-center gap-6"
         >
+          <a
+            href="https://www.linkedin.com/in/hernan-gonzalezma/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center gap-2 text-sm text-muted-foreground transition-colors hover:text-primary"
+          >
+            <Linkedin size={18} />
+            <span>LinkedIn</span>
+          </a>
           <a
             href={personalInfo.github}
             target="_blank"

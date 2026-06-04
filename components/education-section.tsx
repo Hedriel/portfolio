@@ -8,7 +8,7 @@ import { education } from "@/lib/data"
 
 export function EducationSection() {
   return (
-    <section id="education" className="px-6 py-24">
+    <section id="education" className="px-6 py-12 md:py-24">
       <motion.div
         variants={staggerContainer}
         initial="hidden"

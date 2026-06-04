@@ -7,7 +7,7 @@ import { personalInfo, languages } from "@/lib/data"
 
 export function AboutSection() {
   return (
-    <section id="about" className="px-6 py-24">
+    <section id="about" className="px-6 py-12 md:py-24">
       <motion.div
         variants={staggerContainer}
         initial="hidden"

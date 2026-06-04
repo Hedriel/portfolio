@@ -2,7 +2,6 @@ export const personalInfo = {
   name: "Hernan Gonzalez",
   title: "Front-End Developer",
   email: "hernan.gonzalez.magliano@gmail.com",
-  phone: "(+54) 1156912983",
   location: "Buenos Aires, Argentina",
   github: "https://github.com/Hedriel",
   linkedin: "https://www.linkedin.com/in/hernan-gonzalezma/",
@@ -32,6 +31,7 @@ export const skills: Skill[] = [
   { name: "Git", category: "tools" },
   { name: "Postman", category: "tools" },
   { name: "JIRA", category: "tools" },
+  { name: "LLM", category: "tools" },
 ];
 
 export interface Experience {

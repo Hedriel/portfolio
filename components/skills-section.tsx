@@ -54,7 +54,7 @@ export function SkillsSection() {
   const categories = Object.entries(grouped);
 
   return (
-    <section id="skills" className="px-6 py-24">
+    <section id="skills" className="px-6 py-12 md:py-24">
       <div className="mx-auto max-w-3xl">
         <motion.div
           initial="hidden"

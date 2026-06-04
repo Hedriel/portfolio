@@ -1,7 +1,7 @@
 "use client"
 
 import { motion } from "framer-motion"
-import { useEffect, useState } from "react"
+import { useEffect, useRef, useState } from "react"
 import { fadeInUp } from "@/lib/animations"
 
 interface ContributionDay {
@@ -68,6 +68,7 @@ export function GitHubActivity({ username }: GitHubActivityProps) {
   const [totalContributions, setTotalContributions] = useState<number>(0)
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState(false)
+  const gridRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
     async function fetchContributions() {
@@ -99,6 +100,14 @@ export function GitHubActivity({ username }: GitHubActivityProps) {
     fetchContributions()
   }, [username])
 
+  useEffect(() => {
+    if (gridRef.current && weeks.length > 0) {
+      requestAnimationFrame(() => {
+        gridRef.current!.scrollLeft = gridRef.current!.scrollWidth
+      })
+    }
+  }, [weeks])
+
   if (loading) {
     return (
       <motion.div variants={fadeInUp} className="mt-10">
@@ -125,11 +134,11 @@ export function GitHubActivity({ username }: GitHubActivityProps) {
 
   return (
     <motion.div variants={fadeInUp} className="mt-10">
-      <div className="mb-4 flex items-center justify-between">
-        <div className="flex items-center gap-3">
-          <h3 className="font-mono text-sm tracking-widest text-primary">
-            GitHub Activity
-          </h3>
+      <div className="mb-4 flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
+        <h3 className="font-mono text-sm tracking-widest text-primary">
+          GitHub Activity
+        </h3>
+        <div className="flex items-center justify-between sm:justify-end sm:gap-3">
           <a
             href="https://github.com/Hedriel?tab=repositories"
             target="_blank"
@@ -138,12 +147,15 @@ export function GitHubActivity({ username }: GitHubActivityProps) {
           >
             View Repositories →
           </a>
+          <span className="font-mono text-xs text-muted-foreground">
+            {totalContributions.toLocaleString()} contributions in the last year
+          </span>
         </div>
-        <span className="font-mono text-xs text-muted-foreground">
-          {totalContributions.toLocaleString()} contributions in the last year
-        </span>
       </div>
-      <div className="overflow-x-auto rounded-lg border border-border bg-card p-4">
+      <div
+          ref={gridRef}
+          className="overflow-x-auto rounded-lg border border-border bg-card p-4 no-scrollbar"
+        >
         <div className="min-w-fit">
           {/* Month labels */}
           <div className="relative mb-1 h-4" style={{ marginLeft: "28px" }}>

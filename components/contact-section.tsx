@@ -1,10 +1,10 @@
-"use client"
+"use client";
 
-import { motion } from "framer-motion"
-import { Github, Linkedin, Mail, Phone } from "lucide-react"
-import { fadeInUp, staggerContainer } from "@/lib/animations"
-import { SectionHeading } from "./section-heading"
-import { personalInfo } from "@/lib/data"
+import { motion } from "framer-motion";
+import { Github, Linkedin, Mail } from "lucide-react";
+import { fadeInUp, staggerContainer } from "@/lib/animations";
+import { SectionHeading } from "./section-heading";
+import { personalInfo } from "@/lib/data";
 
 const contactLinks = [
   {
@@ -12,12 +12,6 @@ const contactLinks = [
     value: personalInfo.email,
     href: `mailto:${personalInfo.email}`,
     icon: Mail,
-  },
-  {
-    label: "Phone",
-    value: personalInfo.phone,
-    href: `tel:${personalInfo.phone}`,
-    icon: Phone,
   },
   {
     label: "GitHub",
@@ -31,11 +25,11 @@ const contactLinks = [
     href: personalInfo.linkedin,
     icon: Linkedin,
   },
-]
+];
 
 export function ContactSection() {
   return (
-    <section id="contact" className="px-6 py-24">
+    <section id="contact" className="px-6 py-12 md:py-24">
       <motion.div
         variants={staggerContainer}
         initial="hidden"
@@ -49,7 +43,9 @@ export function ContactSection() {
           variants={fadeInUp}
           className="mb-8 text-pretty leading-relaxed text-muted-foreground"
         >
-          {"I'm always open to new opportunities and interesting projects. Feel free to reach out if you'd like to collaborate or just say hello."}
+          {
+            "I'm always open to new opportunities and interesting projects. Feel free to reach out if you'd like to collaborate or just say hello."
+          }
         </motion.p>
 
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
@@ -59,8 +55,16 @@ export function ContactSection() {
               variants={fadeInUp}
               whileHover={{ y: -2 }}
               href={link.href}
-              target={link.label === "GitHub" || link.label === "LinkedIn" ? "_blank" : undefined}
-              rel={link.label === "GitHub" || link.label === "LinkedIn" ? "noopener noreferrer" : undefined}
+              target={
+                link.label === "GitHub" || link.label === "LinkedIn"
+                  ? "_blank"
+                  : undefined
+              }
+              rel={
+                link.label === "GitHub" || link.label === "LinkedIn"
+                  ? "noopener noreferrer"
+                  : undefined
+              }
               className="flex min-w-0 flex-col items-center gap-3 overflow-hidden rounded-lg border border-border bg-card p-6 text-center transition-colors hover:border-primary/40"
             >
               <link.icon className="text-primary" size={22} />
@@ -77,5 +81,5 @@ export function ContactSection() {
         </div>
       </motion.div>
     </section>
-  )
+  );
 }

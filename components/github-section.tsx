@@ -7,7 +7,7 @@ import { GitHubActivity } from "./github-activity"
 
 export function GitHubSection() {
   return (
-    <section id="github" className="px-6 py-24">
+    <section id="github" className="px-6 py-12 md:py-24">
       <motion.div
         variants={staggerContainer}
         initial="hidden"
