@@ -1,7 +1,8 @@
-"use client"
+"use client";
 
-import { motion } from "framer-motion"
-import { fadeIn } from "@/lib/animations"
+import { motion } from "framer-motion";
+import { fadeIn } from "@/lib/animations";
+import { personalInfo } from "@/lib/content";
 
 export function Footer() {
   return (
@@ -9,7 +10,7 @@ export function Footer() {
       variants={fadeIn}
       initial="hidden"
       whileInView="visible"
-      viewport={{ once: false }}
+      viewport={{ once: true }}
       className="border-t border-border px-6 py-8"
     >
       <div className="mx-auto flex max-w-3xl flex-col items-center justify-between gap-4 sm:flex-row">
@@ -17,9 +18,9 @@ export function Footer() {
           {`{ built with Next.js & Framer Motion }`}
         </p>
         <p className="font-mono text-xs text-muted-foreground">
-          {`© ${new Date().getFullYear()} Hernan Gonzalez`}
+          {`© ${new Date().getFullYear()} ${personalInfo.name}`}
         </p>
       </div>
     </motion.footer>
-  )
+  );
 }

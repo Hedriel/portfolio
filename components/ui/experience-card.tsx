@@ -1,40 +1,33 @@
-"use client"
+"use client";
 
-import { motion } from "framer-motion"
-import { fadeInUp } from "@/lib/animations"
-import type { Experience } from "@/lib/data"
+import { motion } from "framer-motion";
+import { fadeInUp } from "@/lib/animations";
+import type { Experience } from "@/lib/content";
+import { cn } from "@/lib/utils";
 
 interface ExperienceCardProps {
-  experience: Experience
+  experience: Experience;
+  isLast?: boolean;
 }
 
-export function ExperienceCard({ experience }: ExperienceCardProps) {
+export function ExperienceCard({ experience, isLast }: ExperienceCardProps) {
   return (
-    <motion.div
-      variants={fadeInUp}
-      className="group relative flex gap-6"
-    >
-      {/* Timeline line */}
+    <motion.div variants={fadeInUp} className="relative flex gap-6">
       <div className="relative flex flex-col items-center">
         <div className="h-3 w-3 rounded-full border-2 border-primary bg-background" />
-        <div className="w-px flex-1 bg-border" />
+        <div className={cn("w-px flex-1 bg-border", isLast && "opacity-0")} />
       </div>
 
-      {/* Content */}
-      <div className="pb-12">
+      <div className={cn(isLast ? "pb-0" : "pb-12")}>
         <div className="flex flex-col gap-1 sm:flex-row sm:items-center sm:gap-3">
-          <h3 className="font-semibold text-foreground">
-            {experience.role}
-          </h3>
-          <span className="text-muted-foreground">{"at"}</span>
-          <span className="font-medium text-primary">
-            {experience.company}
-          </span>
+          <h3 className="font-semibold text-foreground">{experience.role}</h3>
+          <span className="text-muted-foreground">at</span>
+          <span className="font-medium text-primary">{experience.company}</span>
         </div>
 
         <div className="mt-1 flex flex-wrap items-center gap-3 font-mono text-xs text-muted-foreground">
           <span>{experience.period}</span>
-          <span className="hidden sm:inline">{"/"}</span>
+          <span className="hidden sm:inline">/</span>
           <span>{experience.location}</span>
         </div>
 
@@ -42,7 +35,7 @@ export function ExperienceCard({ experience }: ExperienceCardProps) {
           {experience.description}
         </p>
 
-        {experience.technologies && experience.technologies.length > 0 && (
+        {experience.technologies.length > 0 && (
           <div className="mt-4 flex flex-wrap gap-2">
             {experience.technologies.map((tech) => (
               <span
@@ -56,5 +49,5 @@ export function ExperienceCard({ experience }: ExperienceCardProps) {
         )}
       </div>
     </motion.div>
-  )
+  );
 }

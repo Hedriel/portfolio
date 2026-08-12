@@ -1,16 +1,16 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Github, Linkedin, Mail, MapPin } from "lucide-react";
-import { personalInfo } from "@/lib/data";
+import { ChevronDown, MapPin } from "lucide-react";
 import { fadeInUp, staggerContainer } from "@/lib/animations";
+import { personalInfo, socialLinks } from "@/lib/content";
+import { SocialIcon } from "@/components/ui/social-icon";
 
 export function Hero() {
   return (
     <section className="relative flex min-h-screen items-center justify-center px-6">
-      {/* Subtle grid background */}
       <div
-        className="pointer-events-none absolute inset-0 opacity-[0.03] rounded-full border-foreground"
+        className="pointer-events-none absolute inset-0 rounded-full border-foreground opacity-[0.03]"
         style={{
           backgroundImage:
             "linear-gradient(to right, currentColor 1px, transparent 1px), linear-gradient(to bottom, currentColor 1px, transparent 1px)",
@@ -56,31 +56,18 @@ export function Hero() {
           variants={fadeInUp}
           className="mt-8 flex flex-wrap items-center justify-center gap-6"
         >
-          <a
-            href="https://www.linkedin.com/in/hernan-gonzalezma/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex items-center gap-2 text-sm text-muted-foreground transition-colors hover:text-primary"
-          >
-            <Linkedin size={18} />
-            <span>LinkedIn</span>
-          </a>
-          <a
-            href={personalInfo.github}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex items-center gap-2 text-sm text-muted-foreground transition-colors hover:text-primary"
-          >
-            <Github size={18} />
-            <span>GitHub</span>
-          </a>
-          <a
-            href={`mailto:${personalInfo.email}`}
-            className="flex items-center gap-2 text-sm text-muted-foreground transition-colors hover:text-primary"
-          >
-            <Mail size={18} />
-            <span>Email</span>
-          </a>
+          {socialLinks.map((link) => (
+            <a
+              key={link.id}
+              href={link.href}
+              target={link.external ? "_blank" : undefined}
+              rel={link.external ? "noopener noreferrer" : undefined}
+              className="flex items-center gap-2 text-sm text-muted-foreground transition-colors hover:text-primary"
+            >
+              <SocialIcon id={link.id} />
+              <span>{link.label}</span>
+            </a>
+          ))}
           <span className="flex items-center gap-2 text-sm text-muted-foreground">
             <MapPin size={18} />
             <span>{personalInfo.location}</span>
@@ -93,22 +80,12 @@ export function Hero() {
             className="group inline-flex flex-col items-center gap-2 font-mono text-xs text-muted-foreground transition-colors hover:text-primary"
           >
             <span>scroll down</span>
-            <motion.svg
+            <motion.span
               animate={{ y: [0, 6, 0] }}
               transition={{ duration: 1.5, repeat: Infinity }}
-              xmlns="http://www.w3.org/2000/svg"
-              width="16"
-              height="16"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
             >
-              <path d="M12 5v14" />
-              <path d="m19 12-7 7-7-7" />
-            </motion.svg>
+              <ChevronDown size={16} />
+            </motion.span>
           </a>
         </motion.div>
       </motion.div>

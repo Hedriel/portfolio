@@ -1,17 +1,64 @@
 export const personalInfo = {
   name: "Hernan Gonzalez",
+  initials: "HG",
   title: "Front-End Developer",
   email: "hernan.gonzalez.magliano@gmail.com",
   location: "Buenos Aires, Argentina",
-  github: "https://github.com/Hedriel",
-  linkedin: "https://www.linkedin.com/in/hernan-gonzalezma/",
+  github: {
+    username: "Hedriel",
+    url: "https://github.com/Hedriel",
+  },
+  linkedin: {
+    handle: "hernan-gonzalezma",
+    url: "https://www.linkedin.com/in/hernan-gonzalezma/",
+  },
   about:
     "I am a passionate frontend developer with experience working on various projects for companies like MercadoLibre, Globant, and Nodus. I thrive in fast-paced, dynamic environments and enjoy tackling complex challenges to create seamless user experiences.",
 };
 
+export const navLinks = [
+  { label: "About", href: "#about" },
+  { label: "Skills", href: "#skills" },
+  { label: "Experience", href: "#experience" },
+  { label: "GitHub", href: "#github" },
+  { label: "Education", href: "#education" },
+  { label: "Recommendations", href: "#recommendations" },
+  { label: "Contact", href: "#contact" },
+] as const;
+
+export const socialLinks = [
+  {
+    id: "email",
+    label: "Email",
+    value: personalInfo.email,
+    href: `mailto:${personalInfo.email}`,
+    external: false,
+  },
+  {
+    id: "github",
+    label: "GitHub",
+    value: `github.com/${personalInfo.github.username}`,
+    href: personalInfo.github.url,
+    external: true,
+  },
+  {
+    id: "linkedin",
+    label: "LinkedIn",
+    value: personalInfo.linkedin.handle,
+    href: personalInfo.linkedin.url,
+    external: true,
+  },
+] as const;
+
+export type SocialLinkId = (typeof socialLinks)[number]["id"];
+
+export const SKILL_CATEGORIES = ["frontend", "backend", "tools"] as const;
+
+export type SkillCategory = (typeof SKILL_CATEGORIES)[number];
+
 export interface Skill {
   name: string;
-  category: "frontend" | "backend" | "tools";
+  category: SkillCategory;
 }
 
 export const skills: Skill[] = [
@@ -34,6 +81,18 @@ export const skills: Skill[] = [
   { name: "LLM", category: "tools" },
 ];
 
+export const skillCategoryLabels: Record<SkillCategory, string> = {
+  frontend: "Frontend",
+  backend: "Backend",
+  tools: "Tools",
+};
+
+export const skillsByCategory = SKILL_CATEGORIES.map((category) => ({
+  category,
+  label: skillCategoryLabels[category],
+  items: skills.filter((skill) => skill.category === category),
+}));
+
 export interface Experience {
   id: string;
   role: string;
@@ -41,7 +100,7 @@ export interface Experience {
   location: string;
   period: string;
   description: string;
-  technologies?: string[];
+  technologies: string[];
 }
 
 export const experiences: Experience[] = [
@@ -138,25 +197,17 @@ export const recommendations: Recommendation[] = [
     id: "agustin",
     name: "Agustin Lopez",
     relationship: "Colleague at Mercado Libre",
-    text: "Tuve el placer de trabajar con Hernan en Mercado Libre, y desde el primer momento demostro ser un profesional altamente capaz en lo tecnico. Se adapto muy rapido al equipo y, en muy poco tiempo, ya estaba tomando tareas con grandes responsabilidades, las cuales cumplio mas que con creces. Siempre mantuvo una actitud muy positiva. Ademas de su talento, es una excelente persona y un gran companero de trabajo.",
+    text: "Tuve el placer de trabajar con Hernán en Mercado Libre, y desde el primer momento demostró ser un profesional altamente capaz en lo técnico. Se adaptó muy rápido al equipo y, en muy poco tiempo, ya estaba tomando tareas con grandes responsabilidades, las cuales cumplió más que con creces. Siempre mantuvo una actitud muy positiva. Además de su talento, es una excelente persona y un gran compañero de trabajo.",
   },
   {
     id: "daiana",
     name: "Daiana Ortiz",
     relationship: "Buddy at Mercado Libre",
-    text: "Tuve el placer de ser la buddy de Herni en su llegada a Mercado Libre y desde el dia uno demostro una gran capacidad tecnica y una rapidez para adaptarse increible. Entendio enseguida como funcionaba todo, tanto lo tecnico como el negocio, y eso le permitio empezar a aportar valor al equipo rapidamente. Con el tiempo fue asumiendo tareas cada vez mas complejas, y siempre las entregaba en tiempo con una autonomia impresionante. Pero mas alla de su talento, lo que mas destaco es la gran persona que es. No tengo ninguna duda de que Herni va a aportar muchisimo valor donde sea que trabaje. Sin pensarlo dos veces, volveria a trabajar con el.",
+    text: "Tuve el placer de ser la buddy de Herni en su llegada a Mercado Libre y desde el día uno demostró una gran capacidad técnica y una rapidez para adaptarse increíble. Entendió enseguida cómo funcionaba todo, tanto lo técnico como el negocio, y eso le permitió empezar a aportar valor al equipo rápidamente. Con el tiempo fue asumiendo tareas cada vez más complejas, y siempre las entregaba en tiempo con una autonomía impresionante. Pero más allá de su talento, lo que más destaco es la gran persona que es. No tengo ninguna duda de que Herni va a aportar muchísimo valor donde sea que trabaje. Sin pensarlo dos veces, volvería a trabajar con él.",
   },
 ];
 
 export const languages = [
   { name: "English", level: "Advanced" },
   { name: "Spanish", level: "Native" },
-];
-
-export const navLinks = [
-  { label: "About", href: "#about" },
-  { label: "Skills", href: "#skills" },
-  { label: "Experience", href: "#experience" },
-  { label: "Education", href: "#education" },
-  { label: "Contact", href: "#contact" },
 ];

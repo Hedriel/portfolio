@@ -1,11 +1,11 @@
-"use client"
+"use client";
 
-import { motion } from "framer-motion"
-import { fadeInUp } from "@/lib/animations"
+import { motion } from "framer-motion";
+import { fadeInUp } from "@/lib/animations";
 
 interface SectionHeadingProps {
-  label: string
-  title: string
+  label: string;
+  title: string;
 }
 
 export function SectionHeading({ label, title }: SectionHeadingProps) {
@@ -19,5 +19,5 @@ export function SectionHeading({ label, title }: SectionHeadingProps) {
       </h2>
       <div className="mt-4 h-px w-16 bg-primary/40" />
     </motion.div>
-  )
+  );
 }
