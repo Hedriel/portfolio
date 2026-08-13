@@ -211,3 +211,62 @@ export const languages = [
   { name: "English", level: "Advanced" },
   { name: "Spanish", level: "Native" },
 ];
+
+export interface ProjectImage {
+  src: string;
+  alt: string;
+  frame: "desktop" | "mobile";
+}
+
+export interface Project {
+  id: string;
+  title: string;
+  repo: string;
+  description: string;
+  technologies: string[];
+  githubUrl: string;
+  liveUrl: string;
+  images: ProjectImage[];
+}
+
+export const featuredProjects: Project[] = [
+  {
+    id: "keffir-landing",
+    title: "¡Qué Kéfir!",
+    repo: "keffir-landing",
+    description:
+      "Landing page for a fermented water kefir brand — product story, catalog, and a conversion-focused layout for a gluten-free probiotic drink with nationwide retail reach.",
+    technologies: ["Next.js", "TypeScript", "Tailwind"],
+    githubUrl: "https://github.com/Hedriel/keffir-landing",
+    liveUrl: "https://quekefir.com/",
+    images: [
+      {
+        src: "/projects/keffir-hero.webp",
+        alt: "¡Qué Kéfir! landing page hero with the product bottle and brand headline",
+        frame: "desktop",
+      },
+      {
+        src: "/projects/keffir-products.webp",
+        alt: "¡Qué Kéfir! mobile product catalog showing Neutro, Frutos Rojos, and Mango Maracuyá",
+        frame: "mobile",
+      },
+    ],
+  },
+  {
+    id: "mati-castro-dj-portfolio",
+    title: "Mati Castro DJ",
+    repo: "mati-castro-dj-portfolio",
+    description:
+      "Cinematic portfolio for DJ and producer Mati Castro — corporate events, brand launches, and private parties — with motion, a music player, and booking CTAs.",
+    technologies: ["Next.js", "TypeScript", "Tailwind", "Framer Motion"],
+    githubUrl: "https://github.com/Hedriel/mati-castro-dj-portfolio",
+    liveUrl: "https://maticastro.com.ar/",
+    images: [
+      {
+        src: "/projects/mati-castro-dj.webp",
+        alt: "Mati Castro DJ portfolio with music player, events, gallery, and contact sections",
+        frame: "desktop",
+      },
+    ],
+  },
+];
