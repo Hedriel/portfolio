@@ -1,7 +1,7 @@
 export const personalInfo = {
   name: "Hernan Gonzalez",
   initials: "HG",
-  title: "Front-End Developer",
+  title: "Fullstack Developer",
   email: "hernan.gonzalez.magliano@gmail.com",
   location: "Buenos Aires, Argentina",
   github: {
